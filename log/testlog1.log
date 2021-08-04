@@ -1,0 +1,8 @@
+2021-07-22 09:50:22,050 [main] INFO logging.Log4J_Pra - this test is passed
+2021-07-22 09:50:22,058 [main] ERROR logging.Log4J_Pra - this is failed
+2021-07-22 09:53:10,030 [main] INFO logging.Log4J_Pra - this test is passed
+2021-07-22 09:53:10,055 [main] ERROR logging.Log4J_Pra - this is failed
+2021-07-22 10:04:50,365 [main] INFO logging.Log4J_Pra - this test is passed
+2021-07-22 10:04:50,434 [main] ERROR logging.Log4J_Pra - this is failed
+2021-07-22 10:05:43,570 [main] INFO logging.Log4J_Pra - this test is passed
+2021-07-22 10:05:43,573 [main] ERROR logging.Log4J_Pra - this is failed
