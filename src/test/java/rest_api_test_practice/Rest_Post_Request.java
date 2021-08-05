@@ -5,8 +5,11 @@ import io.restassured.RestAssured;
 import io.restassured.http.Method;
 import io.restassured.response.Response;
 import io.restassured.specification.RequestSpecification;
+import org.apache.commons.io.IOUtils;
 import org.json.simple.JSONObject;
 import org.testng.annotations.Test;
+import java.io.FileReader;
+import java.io.IOException;
 
 public class Rest_Post_Request {
     @Test
@@ -75,5 +78,46 @@ public class Rest_Post_Request {
         System.out.println(data1);
         System.out.println(data2);
 
+    }
+    @Test
+    public void post_Json_File() throws IOException {
+        FileReader read = new FileReader("C:\\Users\\GOKUL\\IdeaProjects\\selenium_practice_java\\src\\test\\Json Files\\Swagger_Post_Data.json");
+        RestAssured.baseURI = "https://petstore.swagger.io";
+        Response data = RestAssured.given()
+                .header("Content-Type", "application/json")
+                .body(IOUtils.toString(read))
+                .when()
+                .post("/v2/pet");
+        System.out.println(data.getStatusLine());
+        System.out.println(data.getBody().asString());
+        System.out.println(data.getStatusCode());
+    }
+
+    @Test
+    public void post_Json_File1(){
+        RestAssured.baseURI = "http://localhost:3000";
+
+        String data = """
+                {
+                "name": "amala",
+                "salary": "35000",
+                "age": "29"
+                }
+                """;
+
+        RestAssured.
+                given().
+                header("Content-Type", "application/json").
+                body(data).
+
+                when().
+                post("/data").
+
+                then().
+                statusCode(201).
+                statusLine("HTTP/1.1 201 Created").log().all().extract().response();
+//        System.out.println(response.getStatusCode());
+//        System.out.println(response.getBody().asPrettyString());
+//        System.out.println(response.getStatusLine());
     }
 }
